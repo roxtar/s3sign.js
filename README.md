@@ -7,7 +7,7 @@ Most of the code is a straight JavaScript port from the [s3-signed-url](https://
 
 Demo
 -----
-You can [see a demo here](http://roxtar.github.io/s3sign/s3sign.html) but I would recommend that you clone this repository and open `s3sign.html` locally. 
+You can [see a demo here](http://roxtar.github.io/s3sign/s3sign.html).
 
 Usage
 ------
