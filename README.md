@@ -3,9 +3,11 @@ s3sign.js
 
 s3sign.js is a JavaScript library to generate signed S3 URLs. It's intended to be run in a browser, but it should be easy enough to port it to run on node.js. The s3sign.js library depends on [CryptoJS](https://code.google.com/p/crypto-js/).
 
+Most of the code is a straight JavaScript port from the [s3-signed-url](https://github.com/rbrigham/s3-signed-url) Perl script.
+
 Demo
 -----
-[See demo here.](http://roxtar.github.io/s3sign/s3sign.html)
+You can [see a demo here](http://roxtar.github.io/s3sign/s3sign.html) but I would recommend that you clone this repository and open `s3sign.html` locally. 
 
 Usage
 ------
