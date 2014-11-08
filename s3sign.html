@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<!--
+   s3sign.js v1.0
+   github.com/roxtar/s3sign.js
+   (c) 2014 Rohit Kumar. All rights reserved.
+   github.com/roxtar/s3sign.js/LICENSE
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>S3 Signed URL</title>
+<style type = "text/css">
+.container {
+width:  500 px;
+clear:  both;
+}
+.container input {
+width:  100 %;
+clear:  both;
+}
+
+</style >
+</head>
+<body>
+<script src="CryptoJS/hmac-sha1.js"></script>
+<script src="CryptoJS/enc-base64.js"></script>
+<script src="s3sign.js"></script>
+<script type="text/javascript">
+function signUrl() {
+    var accessKey = document.getElementById("accessKey").value;
+    var secretKey = document.getElementById("secretKey").value;
+    var s3Bucket = document.getElementById("s3Bucket").value;
+    var path = document.getElementById("path").value;
+    var expiresInSeconds = document.getElementById("expiresInSeconds").value;
+
+    var encodeSelectBox = document.getElementById("encodeUri");
+    var encodePath = encodeSelectBox.options[encodeSelectBox.selectedIndex].value;
+    if (encodePath) {
+        path = encodeURIComponent(path);
+    }
+
+    var methodSelectBox = document.getElementById("method");
+    var http_method = methodSelectBox.options[methodSelectBox.selectedIndex].value;
+
+    var signedUrl = s3sign.generateSignedUrl(
+        accessKey, 
+        secretKey,
+        expiresInSeconds,
+        http_method,
+        s3Bucket,
+        path
+        );
+
+    var result = document.getElementById("signedUrl");
+    if (typeof signedUrl === "undefined") {
+      result.placeholder = "Error generating signed URL. Check console log for errors.";
+    } else {
+      result.value = signedUrl;
+      result.focus();
+      result.select();
+    }
+}
+</script>
+<div class="container">
+<form>
+<table>
+<tr>
+    <td>
+    <label>Access Key: </label> 
+    </td>
+    <td>
+    <input id="accessKey" type="text" value="">
+    </td>
+</tr>
+<tr>
+    <td>
+    <label>Secret Key: </label> 
+    </td>
+    <td>
+    <input id="secretKey" type="text" value="">
+    </td>
+</tr>
+<tr>
+    <td>
+    <label>S3 Bucket: </label> 
+    </td>
+    <td>
+    <input id="s3Bucket" type="text" value="">
+    </td>
+</tr>
+<tr>
+<td>
+    <label>Path: </label>
+    </td>
+    <td>
+    <input id="path" type="text" value=""> 
+    </td>
+</tr>
+<tr>
+    <td>
+    <label>Expires in (s): </label>
+    </td>
+    <td>
+    <input type="text" id="expiresInSeconds" value="">
+    </td>
+    </td>
+</tr>
+<tr>
+    <td>
+    <label>URI Encode path</label>
+    </td>
+    <td>
+    <select id="encodeUri">
+      <option value="false">false</option>
+      <option value="true">true</option>
+    </select>
+    </td>
+    </td>
+</tr>
+<tr>
+    <td>
+    <label>HTTP Method</label>
+    </td>
+    <td>
+    <select id="method">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+    </select>
+    </td>
+    </td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<button type="button" onclick="signUrl()" style="float:right">Sign</button>
+</td>
+</tr>
+<tr>
+    <td>
+    <label>Result: </label>
+    </td>
+    <td>
+    <!-- Ugggh. The placeholder attribute of a textarea won't work if
+         there is a newline between the start and end tag -->
+    <textarea id="signedUrl" style="width:100%; height:100%; clear:both; resize: none" rows="5"></textarea>
+    </td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
