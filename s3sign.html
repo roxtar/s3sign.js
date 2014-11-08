@@ -41,13 +41,13 @@ function signUrl() {
     }
 
     var methodSelectBox = document.getElementById("method");
-    var http_method = methodSelectBox.options[methodSelectBox.selectedIndex].value;
+    var httpMethod = methodSelectBox.options[methodSelectBox.selectedIndex].value;
 
     var signedUrl = s3sign.generateSignedUrl(
         accessKey, 
         secretKey,
         expiresInSeconds,
-        http_method,
+        httpMethod,
         s3Bucket,
         path
         );

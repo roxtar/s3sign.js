@@ -25,7 +25,7 @@ Wherever you want to generate a signed URL, you can call
         accessKey,            // AWS Access Key
         secretKey,            // AWS secret Key
         expiresInSeconds,     // Expiration time in seconds from now
-        http_method,          // HTTP method. GET, POST, etc
+        httpMethod,           // HTTP method. GET, POST, etc
         s3Bucket,             // Your S3 bucket name
         path                  // Path to your S3 key. Do not include the bucket name in this.
         );
