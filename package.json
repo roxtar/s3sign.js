@@ -1,0 +1,26 @@
+{
+  "name": "s3sign",
+  "version": "1.0.0",
+  "description": "A lightweight JavaScript library to generate signed S3 URLs.",
+  "main": "s3sign.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roxtar/s3sign.js.git"
+  },
+  "keywords": [
+    "s3",
+    "s3sign",
+    "signed url"
+  ],
+  "dependencies": {
+    "crypto-js": ">= 3.1.2"
+  },
+  "author": "Rohit Kumar <roxtar@gmail.com> (https://roxtar.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roxtar/s3sign.js/issues"
+  }
+}
