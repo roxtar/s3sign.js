@@ -1,7 +1,12 @@
 s3sign.js
 =========
 
-s3sign.js is a JavaScript library to generate signed S3 URLs. It's intended to be run in a browser, but it should be easy enough to port it to run on node.js. The s3sign.js library depends on [CryptoJS](https://code.google.com/p/crypto-js/).
+s3sign.js is a lightweight JavaScript library to generate signed S3 URLs. It's intended to be run in a browser, but it should be easy enough to port it to run on node.js. The s3sign.js library depends on [CryptoJS](https://code.google.com/p/crypto-js/).
+
+The total **unminified** code size is 14.5 KB, which is much smaller than [aws-sdk.js](https://sdk.amazonaws.com/js/aws-sdk-2.0.25.min.js) whose minified version is 239 KB today.
+
+* s3sign.js - 6.4 KB
+* CyrptoJS  - 8.1 KB
 
 Most of the code is a straight JavaScript port from the [s3-signed-url](https://github.com/rbrigham/s3-signed-url) Perl script.
 
